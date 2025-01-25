@@ -28,10 +28,11 @@ export const loadPlayerSprites = (
   // Build the path prefix for the state and direction
   const spritePath = `/src/assets/sprites/player/${state}/${direction}`
 
-  // debugger
   // Extract matching sprites from the glob-imported sprites
   const frames = Array.from({ length: 10 }, (_, index) => {
-    const framePath = `${spritePath}/sprite_0_${index}_${direction}-${state}-state-${index + 1}.png`
+    // Construct the file name based on the new naming convention
+    const frameNumber = String(index + 1).padStart(2, '0') // Ensures '01', '02', etc.
+    const framePath = `${spritePath}/${frameNumber}-frame.png`
     return allSprites[framePath]?.default || ''
   }).filter(Boolean) // Remove any empty values if a file is missing
 
