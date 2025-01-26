@@ -22,7 +22,10 @@ Here, we showcase the periodic progress of the project in stages, including GIFs
   - Add enemy AI.
   - Implement collision detection.
   - Expand tilemap.
+  
 
+### Stage 2: Enhanced Movement and Player Controls
+![Stage 1 Progress](/public/assets/gif/2-stage.gif)
 ---
 
 ## Table of Contents

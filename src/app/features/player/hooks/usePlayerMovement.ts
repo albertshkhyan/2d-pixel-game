@@ -5,21 +5,18 @@ import {
   PlayerDirection,
   PlayerState,
 } from '@/app/features/player/types/player.ts'
+import {
+  FRAME_DELAY,
+  PLAYER_DIRECTIONS,
+  PLAYER_STATES,
+  VALID_KEYS,
+} from '../constants'
 
 interface UsePlayerMovementReturn {
   state: string
   direction: string
   handleKeyDown: (event: KeyboardEvent) => void
   handleKeyUp: (event: KeyboardEvent) => void
-}
-
-const FRAME_DELAY = 50
-const VALID_KEYS = {
-  up: 'ArrowUp',
-  down: 'ArrowDown',
-  left: 'ArrowLeft',
-  right: 'ArrowRight',
-  attack: ' ',
 }
 
 /**
@@ -33,12 +30,12 @@ const usePlayerMovement = (): UsePlayerMovementReturn => {
   useControls({
     PlayerState: {
       value: state,
-      options: ['idle', 'walking', 'attacking'],
+      options: PLAYER_STATES,
       onChange: (newState: PlayerState) => changeState(newState),
     },
     PlayerDirection: {
       value: direction,
-      options: ['front', 'back', 'left', 'right'],
+      options: PLAYER_DIRECTIONS,
       onChange: (newDirection: PlayerDirection) =>
         changeDirection(newDirection),
     },

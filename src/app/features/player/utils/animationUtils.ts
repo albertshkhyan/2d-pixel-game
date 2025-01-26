@@ -1,3 +1,4 @@
+import { MAX_FRAMES } from '../constants'
 import { PlayerDirection, PlayerState } from '../types/player'
 
 const spriteCache: Record<string, string[]> = {}
@@ -29,7 +30,7 @@ export const loadPlayerSprites = (
   const spritePath = `/src/assets/sprites/player/${state}/${direction}`
 
   // Extract matching sprites from the glob-imported sprites
-  const frames = Array.from({ length: 10 }, (_, index) => {
+  const frames = Array.from({ length: MAX_FRAMES }, (_, index) => {
     // Construct the file name based on the new naming convention
     const frameNumber = String(index + 1).padStart(2, '0') // Ensures '01', '02', etc.
     const framePath = `${spritePath}/${frameNumber}-frame.png`
